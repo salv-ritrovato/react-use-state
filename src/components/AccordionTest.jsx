@@ -43,8 +43,8 @@ export default function AccordionTest() {
                 <div className="accordion">
                     <button className="language">{language.title}</button>
                     <div className="card">
-                        <h5 className="cardTitle"></h5>
-                        <p className="accordion-item"></p>
+                        <h5 className="cardTitle">{language.title}</h5>
+                        <p className="accordion-item">{language.description}</p>
                     </div>
                 </div>))}
         </>

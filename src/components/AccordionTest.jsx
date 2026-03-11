@@ -34,19 +34,31 @@ const languages = [
 ];
 
 export default function AccordionTest() {
+    // Valore iniziale della card (nascosto)
+    const [on, Switch] = useState(null);
 
-
+    function turnButton(id) {
+        if (on == id) {
+            Switch(null)
+        } else {
+            Switch(id)
+        }
+    }
 
     return (
         <>
-            {languages.map((language) => (
-                <div className="accordion">
-                    <button className="language">{language.title}</button>
-                    <div className="card">
-                        <h5 className="cardTitle">{language.title}</h5>
-                        <p className="accordion-item">{language.description}</p>
-                    </div>
-                </div>))}
+            <div className="d-flex">
+                {languages.map((language) => (
+                    <div key={language.id} className="accordion">
+                        <button onClick={() => turnButton(language.id)} className="language m-3 btn btn-primary">{language.title}</button>
+                        {on == language.id &&
+                            <div className="card">
+                                <h5 className="cardTitle">{language.title}</h5>
+                                <p className="accordion-item">{language.description}</p>
+                            </div>
+                        }
+                    </div>))}
+            </div>
         </>
     )
 }
